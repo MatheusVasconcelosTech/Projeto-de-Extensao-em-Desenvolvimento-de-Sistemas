@@ -1,1 +1,292 @@
+# APRESENTAÇÃO DO CONTEÚDO DO GITHUB
+
+## 1. Sobre a Empresa
+
+A **(X)** é uma empresa do ramo de **saúde e bem-estar**, criada no contexto do Projeto de Extensão em Desenvolvimento de Sistemas. A empresa tem como proposta utilizar a tecnologia para oferecer soluções que contribuam para uma melhor organização, acompanhamento e acesso a serviços relacionados à saúde e ao bem-estar.
+
+O projeto busca atender às necessidades de pessoas que desejam cuidar melhor da saúde e, ao mesmo tempo, proporcionar uma ferramenta tecnológica capaz de auxiliar na organização dos serviços oferecidos pela empresa.
+
+A solução desenvolvida será estruturada de maneira a representar uma situação real de funcionamento da empresa, permitindo aplicar os conhecimentos adquiridos nas disciplinas do semestre.
+
+### Público atendido
+
+A **(X)** tem como público-alvo pessoas interessadas em cuidados relacionados à saúde, qualidade de vida e bem-estar, além de profissionais responsáveis pelo atendimento e gerenciamento dos serviços oferecidos pela empresa.
+
+### Problema identificado
+
+A dificuldade de organizar informações de clientes, serviços, atendimentos e agendamentos pode prejudicar a eficiência de uma empresa do segmento de saúde e bem-estar.
+
+Dessa forma, o projeto propõe uma solução computacional que auxilie na organização dessas informações e facilite o gerenciamento das principais atividades da empresa.
+
+### Solução proposta
+
+A **(X)** contará com uma solução computacional voltada ao gerenciamento das principais informações e operações da empresa, permitindo organizar dados de clientes, serviços e atendimentos.
+
+O sistema será desenvolvido utilizando os conhecimentos de análise e modelagem de sistemas, programação em C#, banco de dados e engenharia de software.
+
+### Benefícios esperados
+
+Entre os principais benefícios esperados estão:
+
+* Melhor organização das informações;
+* Facilidade no gerenciamento de clientes;
+* Organização dos serviços oferecidos;
+* Maior controle dos atendimentos e agendamentos;
+* Redução de erros no gerenciamento das informações;
+* Aplicação prática da tecnologia no setor de saúde e bem-estar.
+
+---
+
+# 2. Estrutura do Repositório no GitHub
+
+O GitHub será utilizado para centralizar e organizar os arquivos produzidos pela equipe durante o desenvolvimento do projeto.
+
+A estrutura proposta para o repositório será:
+
+```text
+(X)/
+│
+├── README.md
+│
+├── 01-Documentacao/
+│   └── Projeto-Extensao.pdf
+│
+├── 02-UML/
+│   ├── Levantamento-Requisitos.pdf
+│   ├── Diagrama-Casos-de-Uso.png
+│   ├── Diagrama-de-Classes.png
+│   └── Diagrama-de-Atividades.png
+│
+├── 03-CSharp/
+│   ├── Projeto/
+│   ├── Codigo-Fonte/
+│   └── Prints/
+│
+├── 04-Banco-de-Dados/
+│   ├── DER.png
+│   ├── Criacao-Tabelas.sql
+│   ├── Inserts.sql
+│   └── Consultas.sql
+│
+├── 05-Pitch/
+│   └── Link-do-Video.txt
+│
+└── 06-Referencias/
+    └── Referencias-Bibliograficas.pdf
+```
+
+Essa organização permite separar os materiais de acordo com cada etapa do projeto, facilitando a consulta e a avaliação do trabalho.
+
+---
+
+# 3. README do GitHub
+
+O arquivo **README.md** será utilizado como página inicial do projeto, apresentando uma visão geral da empresa e direcionando o usuário para os materiais desenvolvidos.
+
+O README deverá conter:
+
+```text
+# (X) – Saúde e Bem-Estar
+
+## Sobre o Projeto
+
+A (X) é uma empresa do ramo de saúde e bem-estar criada para o
+Projeto de Extensão em Desenvolvimento de Sistemas.
+
+O projeto tem como objetivo desenvolver uma solução computacional
+capaz de auxiliar no gerenciamento das principais atividades da empresa.
+
+## Tecnologias utilizadas
+
+- C#
+- SQL
+- UML
+- Banco de Dados
+- GitHub
+
+## Conteúdo do Repositório
+
+📁 Documentação
+📁 Diagramas UML
+📁 Sistema em C#
+📁 Banco de Dados
+📁 Pitch
+
+## Equipe
+
+- Aluno 1
+- Aluno 2
+- Aluno 3
+- Aluno 4
+- Aluno 5
+- Aluno 6
+
+## Pitch
+
+Link: (X)
+
+## Projeto completo
+
+Link: (X)
+```
+
+---
+
+# 4. Modelagem UML
+
+O repositório deverá conter os diagramas UML desenvolvidos pela equipe.
+
+De acordo com as orientações do projeto, deverão ser desenvolvidos:
+
+* Levantamento de requisitos;
+* Diagrama de Casos de Uso;
+* Diagrama de Classes;
+* Diagrama de Atividades.
+
+Os diagramas deverão representar o mesmo contexto de negócio da empresa e possuir coerência entre si.
+
+Por exemplo, uma funcionalidade identificada nos requisitos deverá estar representada nos casos de uso, enquanto o fluxo de uma funcionalidade poderá ser detalhado no Diagrama de Atividades.
+
+---
+
+# 5. Sistema em C#
+
+A pasta **03-CSharp** deverá conter os arquivos referentes ao programa desenvolvido em linguagem C#.
+
+O programa deverá representar uma funcionalidade relacionada ao funcionamento da **(X)**.
+
+Uma possibilidade para o sistema é desenvolver um **sistema de gerenciamento de clientes e agendamentos**, permitindo operações como:
+
+```text
+1 - Cadastrar cliente
+2 - Listar clientes
+3 - Cadastrar serviço
+4 - Listar serviços
+5 - Realizar agendamento
+6 - Consultar agendamentos
+0 - Sair
+```
+
+O programa deverá demonstrar os conceitos obrigatórios de programação, incluindo:
+
+* Variáveis e constantes;
+* Operadores;
+* Estruturas de decisão;
+* Estruturas de repetição;
+* Menu interativo.
+
+Esses elementos fazem parte dos requisitos estabelecidos para o programa em C#.
+
+---
+
+# 6. Banco de Dados
+
+A pasta **04-Banco-de-Dados** deverá armazenar os arquivos relacionados ao banco de dados da empresa.
+
+O banco deverá representar as informações necessárias para o funcionamento da **(X)**.
+
+Como exemplo, poderão ser utilizadas entidades como:
+
+* Cliente;
+* Profissional;
+* Serviço;
+* Agendamento;
+* Pagamento.
+
+O projeto exige, no mínimo, **5 entidades/tabelas**, com atributos, chaves primárias, chaves estrangeiras, relacionamentos e cardinalidades.
+
+Também deverão ser disponibilizados no GitHub:
+
+```text
+Criacao-Tabelas.sql
+Inserts.sql
+Consultas.sql
+DER.png
+```
+
+Os scripts deverão demonstrar a criação das tabelas, inserção de dados e realização de consultas.
+
+---
+
+# 7. Pitch
+
+O projeto também contará com um vídeo de apresentação, disponibilizado no YouTube como não listado ou restrito.
+
+O vídeo deverá apresentar uma visão geral da **(X)** e demonstrar as soluções desenvolvidas pela equipe.
+
+A apresentação deverá abordar:
+
+* Apresentação da empresa;
+* Diagramas UML;
+* Modelo de engenharia de software;
+* Sistema desenvolvido em C#;
+* Diagrama Entidade-Relacionamento;
+* Banco de dados;
+* Organização e desenvolvimento do projeto.
+
+O vídeo deverá possuir duração máxima de **10 minutos**, conforme as orientações do projeto.
+
+No GitHub será disponibilizado o link:
+
+```text
+Pitch:
+(X)
+```
+
+---
+
+# 8. Documentação
+
+A pasta **01-Documentacao** deverá conter a documentação produzida pela equipe durante o desenvolvimento do projeto.
+
+Entre os materiais estarão:
+
+* Objetivos do projeto;
+* Organização da equipe;
+* Cronograma;
+* Estrutura organizacional;
+* Engenharia de software;
+* Modelagem UML;
+* Descrição do sistema;
+* Banco de dados;
+* Pitch;
+* Conclusão;
+* Referências bibliográficas.
+
+Esses itens seguem a estrutura indicada no modelo oficial do projeto.
+
+---
+
+# 9. Objetivo do GitHub
+
+O GitHub terá como objetivo centralizar todos os materiais desenvolvidos pela equipe, proporcionando uma estrutura organizada para acompanhar o desenvolvimento da solução.
+
+Dessa forma, o repositório permitirá visualizar desde a documentação e planejamento inicial até os diagramas, códigos em C#, scripts do banco de dados e apresentação final.
+
+O repositório funcionará como um registro do desenvolvimento do projeto, demonstrando a aplicação prática dos conhecimentos adquiridos nas diferentes disciplinas envolvidas.
+
+---
+
+# 10. Links do Projeto
+
+**Repositório GitHub:**
+(X)
+
+**Sistema C#:**
+(X)
+
+**Banco de Dados:**
+(X)
+
+**Documentação:**
+(X)
+
+**Pitch:**
+(X)
+
+**Diagrama UML:**
+(X)
+
+**DER:**
+(X)
 
