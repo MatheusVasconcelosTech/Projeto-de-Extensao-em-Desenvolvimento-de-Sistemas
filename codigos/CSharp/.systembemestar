@@ -1,0 +1,1482 @@
+using System;
+using System.Collections.Generic;
+
+// ========================================================
+// CLASSE CLIENTE
+// ========================================================
+
+class Cliente
+{
+    public string Nome;
+    public string CPF;
+    public string Telefone;
+    public string Email;
+}
+
+
+// ========================================================
+// CLASSE PRODUTO
+// ========================================================
+
+class Produto
+{
+    public string Nome;
+    public string Categoria;
+    public double Preco;
+    public int Estoque;
+}
+
+
+// ========================================================
+// CLASSE PEDIDO
+// ========================================================
+
+class Pedido
+{
+    public string Cliente;
+    public string Produto;
+    public int Quantidade;
+    public double Total;
+}
+
+
+// ========================================================
+// CLASSE AGENDAMENTO
+// ========================================================
+
+class Agendamento
+{
+    public string Cliente;
+    public string Servico;
+    public string Data;
+    public string Horario;
+}
+
+
+// ========================================================
+// CLASSE VENDA
+// ========================================================
+
+class Venda
+{
+    public string Cliente;
+    public string Produto;
+    public int Quantidade;
+    public double Total;
+}
+
+
+// ========================================================
+// CLASSE SERVIÇO
+// ========================================================
+
+class Servico
+{
+    public string Nome;
+    public string Descricao;
+    public double Preco;
+}
+
+
+// ========================================================
+// CLASSE PRINCIPAL
+// ========================================================
+
+class Program
+{
+    // ====================================================
+    // LISTAS DO SISTEMA
+    // ====================================================
+
+    static List<Cliente> clientes = new List<Cliente>();
+
+    static List<Produto> produtos = new List<Produto>();
+
+    static List<Pedido> pedidos = new List<Pedido>();
+
+    static List<Agendamento> agendamentos =
+        new List<Agendamento>();
+
+    static List<Venda> vendas =
+        new List<Venda>();
+
+    static List<Servico> servicos =
+        new List<Servico>();
+
+
+    // ====================================================
+    // PROGRAMA PRINCIPAL
+    // ====================================================
+
+    static void Main()
+    {
+        const string nomeEmpresa = "BemEstar+";
+
+        int opcao;
+
+        do
+        {
+            Console.Clear();
+
+            Console.WriteLine("========================================");
+            Console.WriteLine("              " + nomeEmpresa);
+            Console.WriteLine("          SAÚDE E BEM-ESTAR");
+            Console.WriteLine("========================================");
+            Console.WriteLine();
+
+            Console.WriteLine("1 - Cadastro de Clientes");
+            Console.WriteLine("2 - Cadastro de Produtos");
+            Console.WriteLine("3 - Controle de Pedidos");
+            Console.WriteLine("4 - Sistema de Agendamento");
+            Console.WriteLine("5 - Controle de Estoque");
+            Console.WriteLine("6 - Registro de Vendas");
+            Console.WriteLine("7 - Cadastro de Serviços");
+            Console.WriteLine("8 - Reajuste de Preços");
+            Console.WriteLine("0 - Sair");
+
+            Console.WriteLine();
+            Console.Write("Escolha uma opção: ");
+
+            if (int.TryParse(Console.ReadLine(), out opcao))
+            {
+                switch (opcao)
+                {
+                    case 1:
+                        MenuClientes();
+                        break;
+
+                    case 2:
+                        MenuProdutos();
+                        break;
+
+                    case 3:
+                        MenuPedidos();
+                        break;
+
+                    case 4:
+                        MenuAgendamentos();
+                        break;
+
+                    case 5:
+                        MenuEstoque();
+                        break;
+
+                    case 6:
+                        MenuVendas();
+                        break;
+
+                    case 7:
+                        MenuServicos();
+                        break;
+
+                    case 8:
+                        ReajustarPrecos();
+                        break;
+
+                    case 0:
+                        Console.WriteLine();
+                        Console.WriteLine("Sistema encerrado.");
+                        break;
+
+                    default:
+                        Console.WriteLine();
+                        Console.WriteLine("Opção inválida.");
+                        Console.ReadKey();
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("Digite uma opção válida.");
+                Console.ReadKey();
+            }
+
+        } while (opcao != 0);
+    }
+
+
+    // ====================================================
+    // 1 - CADASTRO DE CLIENTES
+    // ====================================================
+
+    static void MenuClientes()
+    {
+        int opcao;
+
+        do
+        {
+            Console.Clear();
+
+            Console.WriteLine("========== CLIENTES ==========");
+            Console.WriteLine("1 - Cadastrar cliente");
+            Console.WriteLine("2 - Listar clientes");
+            Console.WriteLine("0 - Voltar");
+
+            Console.Write("\nEscolha uma opção: ");
+
+            int.TryParse(Console.ReadLine(), out opcao);
+
+            switch (opcao)
+            {
+                case 1:
+                    CadastrarCliente();
+                    break;
+
+                case 2:
+                    ListarClientes();
+                    break;
+
+                case 0:
+                    break;
+
+                default:
+                    Console.WriteLine("Opção inválida.");
+                    Console.ReadKey();
+                    break;
+            }
+
+        } while (opcao != 0);
+    }
+
+
+    static void CadastrarCliente()
+    {
+        Console.Clear();
+
+        Cliente cliente = new Cliente();
+
+        Console.WriteLine("===== CADASTRO DE CLIENTE =====");
+
+        Console.Write("Nome: ");
+        cliente.Nome = Console.ReadLine();
+
+        Console.Write("CPF: ");
+        cliente.CPF = Console.ReadLine();
+
+        Console.Write("Telefone: ");
+        cliente.Telefone = Console.ReadLine();
+
+        Console.Write("E-mail: ");
+        cliente.Email = Console.ReadLine();
+
+        clientes.Add(cliente);
+
+        Console.WriteLine();
+        Console.WriteLine("Cliente cadastrado com sucesso!");
+
+        Console.ReadKey();
+    }
+
+
+    static void ListarClientes()
+    {
+        Console.Clear();
+
+        Console.WriteLine("===== CLIENTES CADASTRADOS =====");
+
+        if (clientes.Count == 0)
+        {
+            Console.WriteLine("Nenhum cliente cadastrado.");
+        }
+        else
+        {
+            for (int i = 0; i < clientes.Count; i++)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Cliente " + (i + 1));
+                Console.WriteLine("Nome: " + clientes[i].Nome);
+                Console.WriteLine("CPF: " + clientes[i].CPF);
+                Console.WriteLine("Telefone: " +
+                    clientes[i].Telefone);
+                Console.WriteLine("E-mail: " +
+                    clientes[i].Email);
+            }
+        }
+
+        Console.ReadKey();
+    }
+
+
+    // ====================================================
+    // 2 - CADASTRO DE PRODUTOS
+    // ====================================================
+
+    static void MenuProdutos()
+    {
+        int opcao;
+
+        do
+        {
+            Console.Clear();
+
+            Console.WriteLine("========== PRODUTOS ==========");
+            Console.WriteLine("1 - Cadastrar produto");
+            Console.WriteLine("2 - Listar produtos");
+            Console.WriteLine("0 - Voltar");
+
+            Console.Write("\nEscolha uma opção: ");
+
+            int.TryParse(Console.ReadLine(), out opcao);
+
+            switch (opcao)
+            {
+                case 1:
+                    CadastrarProduto();
+                    break;
+
+                case 2:
+                    ListarProdutos();
+                    break;
+
+                case 0:
+                    break;
+
+                default:
+                    Console.WriteLine("Opção inválida.");
+                    Console.ReadKey();
+                    break;
+            }
+
+        } while (opcao != 0);
+    }
+
+
+    static void CadastrarProduto()
+    {
+        Console.Clear();
+
+        Produto produto = new Produto();
+
+        Console.WriteLine("===== CADASTRO DE PRODUTO =====");
+
+        Console.Write("Nome: ");
+        produto.Nome = Console.ReadLine();
+
+        Console.Write("Categoria: ");
+        produto.Categoria = Console.ReadLine();
+
+        Console.Write("Preço: R$ ");
+        double.TryParse(
+            Console.ReadLine(),
+            out produto.Preco
+        );
+
+        Console.Write("Quantidade em estoque: ");
+        int.TryParse(
+            Console.ReadLine(),
+            out produto.Estoque
+        );
+
+        produtos.Add(produto);
+
+        Console.WriteLine();
+        Console.WriteLine("Produto cadastrado com sucesso!");
+
+        Console.ReadKey();
+    }
+
+
+    static void ListarProdutos()
+    {
+        Console.Clear();
+
+        Console.WriteLine("===== PRODUTOS CADASTRADOS =====");
+
+        if (produtos.Count == 0)
+        {
+            Console.WriteLine("Nenhum produto cadastrado.");
+        }
+        else
+        {
+            for (int i = 0; i < produtos.Count; i++)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Produto " + (i + 1));
+
+                Console.WriteLine("Nome: " +
+                    produtos[i].Nome);
+
+                Console.WriteLine("Categoria: " +
+                    produtos[i].Categoria);
+
+                Console.WriteLine("Preço: R$ " +
+                    produtos[i].Preco.ToString("F2"));
+
+                Console.WriteLine("Estoque: " +
+                    produtos[i].Estoque);
+            }
+        }
+
+        Console.ReadKey();
+    }
+
+
+    // ====================================================
+    // 3 - CONTROLE DE PEDIDOS
+    // ====================================================
+
+    static void MenuPedidos()
+    {
+        int opcao;
+
+        do
+        {
+            Console.Clear();
+
+            Console.WriteLine("========== PEDIDOS ==========");
+            Console.WriteLine("1 - Registrar pedido");
+            Console.WriteLine("2 - Listar pedidos");
+            Console.WriteLine("0 - Voltar");
+
+            Console.Write("\nEscolha uma opção: ");
+
+            int.TryParse(Console.ReadLine(), out opcao);
+
+            switch (opcao)
+            {
+                case 1:
+                    RegistrarPedido();
+                    break;
+
+                case 2:
+                    ListarPedidos();
+                    break;
+
+                case 0:
+                    break;
+
+                default:
+                    Console.WriteLine("Opção inválida.");
+                    Console.ReadKey();
+                    break;
+            }
+
+        } while (opcao != 0);
+    }
+
+
+    static void RegistrarPedido()
+    {
+        Console.Clear();
+
+        if (clientes.Count == 0 ||
+            produtos.Count == 0)
+        {
+            Console.WriteLine(
+                "É necessário possuir clientes " +
+                "e produtos cadastrados."
+            );
+
+            Console.ReadKey();
+            return;
+        }
+
+        Pedido pedido = new Pedido();
+
+        Console.WriteLine("===== REGISTRO DE PEDIDO =====");
+
+        Console.Write("Nome do cliente: ");
+        pedido.Cliente = Console.ReadLine();
+
+        Console.Write("Nome do produto: ");
+        pedido.Produto = Console.ReadLine();
+
+        Console.Write("Quantidade: ");
+
+        int.TryParse(
+            Console.ReadLine(),
+            out pedido.Quantidade
+        );
+
+        Produto produtoEncontrado = null;
+
+        foreach (Produto produto in produtos)
+        {
+            if (produto.Nome.Equals(
+                pedido.Produto,
+                StringComparison.OrdinalIgnoreCase))
+            {
+                produtoEncontrado = produto;
+                break;
+            }
+        }
+
+        if (produtoEncontrado == null)
+        {
+            Console.WriteLine(
+                "\nProduto não encontrado."
+            );
+        }
+        else if (pedido.Quantidade <= 0)
+        {
+            Console.WriteLine(
+                "\nQuantidade inválida."
+            );
+        }
+        else if (
+            pedido.Quantidade >
+            produtoEncontrado.Estoque)
+        {
+            Console.WriteLine(
+                "\nEstoque insuficiente."
+            );
+        }
+        else
+        {
+            pedido.Total =
+                produtoEncontrado.Preco *
+                pedido.Quantidade;
+
+            produtoEncontrado.Estoque -=
+                pedido.Quantidade;
+
+            pedidos.Add(pedido);
+
+            Console.WriteLine(
+                "\nPedido registrado com sucesso!"
+            );
+
+            Console.WriteLine(
+                "Total: R$ " +
+                pedido.Total.ToString("F2")
+            );
+        }
+
+        Console.ReadKey();
+    }
+
+
+    static void ListarPedidos()
+    {
+        Console.Clear();
+
+        Console.WriteLine("===== PEDIDOS REGISTRADOS =====");
+
+        if (pedidos.Count == 0)
+        {
+            Console.WriteLine(
+                "Nenhum pedido registrado."
+            );
+        }
+        else
+        {
+            for (int i = 0; i < pedidos.Count; i++)
+            {
+                Console.WriteLine();
+
+                Console.WriteLine(
+                    "Pedido " + (i + 1)
+                );
+
+                Console.WriteLine(
+                    "Cliente: " +
+                    pedidos[i].Cliente
+                );
+
+                Console.WriteLine(
+                    "Produto: " +
+                    pedidos[i].Produto
+                );
+
+                Console.WriteLine(
+                    "Quantidade: " +
+                    pedidos[i].Quantidade
+                );
+
+                Console.WriteLine(
+                    "Total: R$ " +
+                    pedidos[i].Total.ToString("F2")
+                );
+            }
+        }
+
+        Console.ReadKey();
+    }
+
+
+    // ====================================================
+    // 4 - SISTEMA DE AGENDAMENTO
+    // ====================================================
+
+    static void MenuAgendamentos()
+    {
+        int opcao;
+
+        do
+        {
+            Console.Clear();
+
+            Console.WriteLine("======= AGENDAMENTOS ========");
+            Console.WriteLine("1 - Novo agendamento");
+            Console.WriteLine("2 - Listar agendamentos");
+            Console.WriteLine("0 - Voltar");
+
+            Console.Write("\nEscolha uma opção: ");
+
+            int.TryParse(Console.ReadLine(), out opcao);
+
+            switch (opcao)
+            {
+                case 1:
+                    NovoAgendamento();
+                    break;
+
+                case 2:
+                    ListarAgendamentos();
+                    break;
+
+                case 0:
+                    break;
+
+                default:
+                    Console.WriteLine("Opção inválida.");
+                    Console.ReadKey();
+                    break;
+            }
+
+        } while (opcao != 0);
+    }
+
+
+    static void NovoAgendamento()
+    {
+        Console.Clear();
+
+        Agendamento agendamento =
+            new Agendamento();
+
+        Console.WriteLine(
+            "===== NOVO AGENDAMENTO ====="
+        );
+
+        Console.Write("Cliente: ");
+        agendamento.Cliente =
+            Console.ReadLine();
+
+        Console.Write("Serviço: ");
+        agendamento.Servico =
+            Console.ReadLine();
+
+        Console.Write("Data: ");
+        agendamento.Data =
+            Console.ReadLine();
+
+        Console.Write("Horário: ");
+        agendamento.Horario =
+            Console.ReadLine();
+
+        bool horarioOcupado = false;
+
+        foreach (
+            Agendamento item
+            in agendamentos)
+        {
+            if (
+                item.Data ==
+                agendamento.Data &&
+                item.Horario ==
+                agendamento.Horario)
+            {
+                horarioOcupado = true;
+                break;
+            }
+        }
+
+        if (horarioOcupado)
+        {
+            Console.WriteLine(
+                "\nHorário indisponível."
+            );
+        }
+        else
+        {
+            agendamentos.Add(
+                agendamento
+            );
+
+            Console.WriteLine(
+                "\nAgendamento realizado " +
+                "com sucesso!"
+            );
+        }
+
+        Console.ReadKey();
+    }
+
+
+    static void ListarAgendamentos()
+    {
+        Console.Clear();
+
+        Console.WriteLine(
+            "===== AGENDAMENTOS ====="
+        );
+
+        if (agendamentos.Count == 0)
+        {
+            Console.WriteLine(
+                "Nenhum agendamento realizado."
+            );
+        }
+        else
+        {
+            for (
+                int i = 0;
+                i < agendamentos.Count;
+                i++)
+            {
+                Console.WriteLine();
+
+                Console.WriteLine(
+                    "Agendamento " + (i + 1)
+                );
+
+                Console.WriteLine(
+                    "Cliente: " +
+                    agendamentos[i].Cliente
+                );
+
+                Console.WriteLine(
+                    "Serviço: " +
+                    agendamentos[i].Servico
+                );
+
+                Console.WriteLine(
+                    "Data: " +
+                    agendamentos[i].Data
+                );
+
+                Console.WriteLine(
+                    "Horário: " +
+                    agendamentos[i].Horario
+                );
+            }
+        }
+
+        Console.ReadKey();
+    }
+
+
+    // ====================================================
+    // 5 - CONTROLE DE ESTOQUE
+    // ====================================================
+
+    static void MenuEstoque()
+    {
+        int opcao;
+
+        do
+        {
+            Console.Clear();
+
+            Console.WriteLine("========== ESTOQUE ==========");
+            Console.WriteLine("1 - Consultar estoque");
+            Console.WriteLine("2 - Entrada de produtos");
+            Console.WriteLine("3 - Saída de produtos");
+            Console.WriteLine("4 - Produtos com estoque baixo");
+            Console.WriteLine("0 - Voltar");
+
+            Console.Write("\nEscolha uma opção: ");
+
+            int.TryParse(Console.ReadLine(), out opcao);
+
+            switch (opcao)
+            {
+                case 1:
+                    ConsultarEstoque();
+                    break;
+
+                case 2:
+                    EntradaEstoque();
+                    break;
+
+                case 3:
+                    SaidaEstoque();
+                    break;
+
+                case 4:
+                    EstoqueBaixo();
+                    break;
+
+                case 0:
+                    break;
+
+                default:
+                    Console.WriteLine(
+                        "Opção inválida."
+                    );
+
+                    Console.ReadKey();
+                    break;
+            }
+
+        } while (opcao != 0);
+    }
+
+
+    static void ConsultarEstoque()
+    {
+        Console.Clear();
+
+        Console.WriteLine(
+            "===== CONTROLE DE ESTOQUE ====="
+        );
+
+        if (produtos.Count == 0)
+        {
+            Console.WriteLine(
+                "Nenhum produto cadastrado."
+            );
+        }
+        else
+        {
+            foreach (Produto produto in produtos)
+            {
+                Console.WriteLine();
+                Console.WriteLine(
+                    "Produto: " + produto.Nome
+                );
+
+                Console.WriteLine(
+                    "Quantidade: " +
+                    produto.Estoque
+                );
+            }
+        }
+
+        Console.ReadKey();
+    }
+
+
+    static void EntradaEstoque()
+    {
+        Console.Clear();
+
+        Console.WriteLine(
+            "===== ENTRADA DE ESTOQUE ====="
+        );
+
+        Console.Write("Produto: ");
+        string nome =
+            Console.ReadLine();
+
+        Produto produtoEncontrado =
+            null;
+
+        foreach (Produto produto in produtos)
+        {
+            if (produto.Nome.Equals(
+                nome,
+                StringComparison.OrdinalIgnoreCase))
+            {
+                produtoEncontrado = produto;
+                break;
+            }
+        }
+
+        if (produtoEncontrado == null)
+        {
+            Console.WriteLine(
+                "\nProduto não encontrado."
+            );
+        }
+        else
+        {
+            Console.Write("Quantidade de entrada: ");
+
+            int quantidade;
+
+            int.TryParse(
+                Console.ReadLine(),
+                out quantidade
+            );
+
+            if (quantidade > 0)
+            {
+                produtoEncontrado.Estoque +=
+                    quantidade;
+
+                Console.WriteLine(
+                    "\nEstoque atualizado!"
+                );
+
+                Console.WriteLine(
+                    "Novo estoque: " +
+                    produtoEncontrado.Estoque
+                );
+            }
+            else
+            {
+                Console.WriteLine(
+                    "\nQuantidade inválida."
+                );
+            }
+        }
+
+        Console.ReadKey();
+    }
+
+
+    static void SaidaEstoque()
+    {
+        Console.Clear();
+
+        Console.WriteLine(
+            "===== SAÍDA DE ESTOQUE ====="
+        );
+
+        Console.Write("Produto: ");
+        string nome =
+            Console.ReadLine();
+
+        Produto produtoEncontrado =
+            null;
+
+        foreach (Produto produto in produtos)
+        {
+            if (produto.Nome.Equals(
+                nome,
+                StringComparison.OrdinalIgnoreCase))
+            {
+                produtoEncontrado = produto;
+                break;
+            }
+        }
+
+        if (produtoEncontrado == null)
+        {
+            Console.WriteLine(
+                "\nProduto não encontrado."
+            );
+        }
+        else
+        {
+            Console.Write(
+                "Quantidade de saída: "
+            );
+
+            int quantidade;
+
+            int.TryParse(
+                Console.ReadLine(),
+                out quantidade
+            );
+
+            if (quantidade <= 0)
+            {
+                Console.WriteLine(
+                    "\nQuantidade inválida."
+                );
+            }
+            else if (
+                quantidade >
+                produtoEncontrado.Estoque)
+            {
+                Console.WriteLine(
+                    "\nEstoque insuficiente."
+                );
+            }
+            else
+            {
+                produtoEncontrado.Estoque -=
+                    quantidade;
+
+                Console.WriteLine(
+                    "\nSaída registrada!"
+                );
+
+                Console.WriteLine(
+                    "Novo estoque: " +
+                    produtoEncontrado.Estoque
+                );
+            }
+        }
+
+        Console.ReadKey();
+    }
+
+
+    static void EstoqueBaixo()
+    {
+        Console.Clear();
+
+        Console.WriteLine(
+            "===== ESTOQUE BAIXO ====="
+        );
+
+        // Quantidade considerada como estoque baixo
+        const int limiteEstoque = 5;
+
+        bool encontrou = false;
+
+        foreach (Produto produto in produtos)
+        {
+            if (produto.Estoque <= limiteEstoque)
+            {
+                Console.WriteLine();
+                Console.WriteLine(
+                    "Produto: " +
+                    produto.Nome
+                );
+
+                Console.WriteLine(
+                    "Estoque: " +
+                    produto.Estoque
+                );
+
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou)
+        {
+            Console.WriteLine(
+                "Nenhum produto com estoque baixo."
+            );
+        }
+
+        Console.ReadKey();
+    }
+
+
+    // ====================================================
+    // 6 - REGISTRO DE VENDAS
+    // ====================================================
+
+    static void MenuVendas()
+    {
+        int opcao;
+
+        do
+        {
+            Console.Clear();
+
+            Console.WriteLine("========== VENDAS ==========");
+            Console.WriteLine("1 - Registrar venda");
+            Console.WriteLine("2 - Listar vendas");
+            Console.WriteLine("0 - Voltar");
+
+            Console.Write("\nEscolha uma opção: ");
+
+            int.TryParse(Console.ReadLine(), out opcao);
+
+            switch (opcao)
+            {
+                case 1:
+                    RegistrarVenda();
+                    break;
+
+                case 2:
+                    ListarVendas();
+                    break;
+
+                case 0:
+                    break;
+
+                default:
+                    Console.WriteLine(
+                        "Opção inválida."
+                    );
+
+                    Console.ReadKey();
+                    break;
+            }
+
+        } while (opcao != 0);
+    }
+
+
+    static void RegistrarVenda()
+    {
+        Console.Clear();
+
+        Console.WriteLine(
+            "===== REGISTRO DE VENDA ====="
+        );
+
+        if (produtos.Count == 0)
+        {
+            Console.WriteLine(
+                "Nenhum produto cadastrado."
+            );
+
+            Console.ReadKey();
+            return;
+        }
+
+        Venda venda = new Venda();
+
+        Console.Write("Cliente: ");
+        venda.Cliente =
+            Console.ReadLine();
+
+        Console.Write("Produto: ");
+        venda.Produto =
+            Console.ReadLine();
+
+        Console.Write("Quantidade: ");
+
+        int.TryParse(
+            Console.ReadLine(),
+            out venda.Quantidade
+        );
+
+        Produto produtoEncontrado =
+            null;
+
+        foreach (Produto produto in produtos)
+        {
+            if (produto.Nome.Equals(
+                venda.Produto,
+                StringComparison.OrdinalIgnoreCase))
+            {
+                produtoEncontrado = produto;
+                break;
+            }
+        }
+
+        if (produtoEncontrado == null)
+        {
+            Console.WriteLine(
+                "\nProduto não encontrado."
+            );
+        }
+        else if (venda.Quantidade <= 0)
+        {
+            Console.WriteLine(
+                "\nQuantidade inválida."
+            );
+        }
+        else if (
+            venda.Quantidade >
+            produtoEncontrado.Estoque)
+        {
+            Console.WriteLine(
+                "\nEstoque insuficiente."
+            );
+        }
+        else
+        {
+            // Cálculo do valor da venda
+            venda.Total =
+                produtoEncontrado.Preco *
+                venda.Quantidade;
+
+            // Atualização automática do estoque
+            produtoEncontrado.Estoque -=
+                venda.Quantidade;
+
+            vendas.Add(venda);
+
+            Console.WriteLine();
+            Console.WriteLine(
+                "Venda registrada com sucesso!"
+            );
+
+            Console.WriteLine(
+                "Valor total: R$ " +
+                venda.Total.ToString("F2")
+            );
+        }
+
+        Console.ReadKey();
+    }
+
+
+    static void ListarVendas()
+    {
+        Console.Clear();
+
+        Console.WriteLine(
+            "===== VENDAS REALIZADAS ====="
+        );
+
+        if (vendas.Count == 0)
+        {
+            Console.WriteLine(
+                "Nenhuma venda registrada."
+            );
+        }
+        else
+        {
+            for (
+                int i = 0;
+                i < vendas.Count;
+                i++)
+            {
+                Console.WriteLine();
+
+                Console.WriteLine(
+                    "Venda " + (i + 1)
+                );
+
+                Console.WriteLine(
+                    "Cliente: " +
+                    vendas[i].Cliente
+                );
+
+                Console.WriteLine(
+                    "Produto: " +
+                    vendas[i].Produto
+                );
+
+                Console.WriteLine(
+                    "Quantidade: " +
+                    vendas[i].Quantidade
+                );
+
+                Console.WriteLine(
+                    "Total: R$ " +
+                    vendas[i].Total.ToString("F2")
+                );
+            }
+        }
+
+        Console.ReadKey();
+    }
+
+
+    // ====================================================
+    // 7 - CADASTRO DE SERVIÇOS
+    // ====================================================
+
+    static void MenuServicos()
+    {
+        int opcao;
+
+        do
+        {
+            Console.Clear();
+
+            Console.WriteLine("========== SERVIÇOS ==========");
+            Console.WriteLine("1 - Cadastrar serviço");
+            Console.WriteLine("2 - Listar serviços");
+            Console.WriteLine("0 - Voltar");
+
+            Console.Write("\nEscolha uma opção: ");
+
+            int.TryParse(Console.ReadLine(), out opcao);
+
+            switch (opcao)
+            {
+                case 1:
+                    CadastrarServico();
+                    break;
+
+                case 2:
+                    ListarServicos();
+                    break;
+
+                case 0:
+                    break;
+
+                default:
+                    Console.WriteLine(
+                        "Opção inválida."
+                    );
+
+                    Console.ReadKey();
+                    break;
+            }
+
+        } while (opcao != 0);
+    }
+
+
+    static void CadastrarServico()
+    {
+        Console.Clear();
+
+        Servico servico =
+            new Servico();
+
+        Console.WriteLine(
+            "===== CADASTRO DE SERVIÇO ====="
+        );
+
+        Console.Write("Nome do serviço: ");
+        servico.Nome =
+            Console.ReadLine();
+
+        Console.Write("Descrição: ");
+        servico.Descricao =
+            Console.ReadLine();
+
+        Console.Write("Preço: R$ ");
+
+        double.TryParse(
+            Console.ReadLine(),
+            out servico.Preco
+        );
+
+        servicos.Add(servico);
+
+        Console.WriteLine();
+        Console.WriteLine(
+            "Serviço cadastrado com sucesso!"
+        );
+
+        Console.ReadKey();
+    }
+
+
+    static void ListarServicos()
+    {
+        Console.Clear();
+
+        Console.WriteLine(
+            "===== SERVIÇOS CADASTRADOS ====="
+        );
+
+        if (servicos.Count == 0)
+        {
+            Console.WriteLine(
+                "Nenhum serviço cadastrado."
+            );
+        }
+        else
+        {
+            for (
+                int i = 0;
+                i < servicos.Count;
+                i++)
+            {
+                Console.WriteLine();
+
+                Console.WriteLine(
+                    "Serviço " + (i + 1)
+                );
+
+                Console.WriteLine(
+                    "Nome: " +
+                    servicos[i].Nome
+                );
+
+                Console.WriteLine(
+                    "Descrição: " +
+                    servicos[i].Descricao
+                );
+
+                Console.WriteLine(
+                    "Preço: R$ " +
+                    servicos[i].Preco.ToString("F2")
+                );
+            }
+        }
+
+        Console.ReadKey();
+    }
+
+
+    // ====================================================
+    // 8 - REAJUSTE DE PREÇOS
+    // ====================================================
+
+    static void ReajustarPrecos()
+    {
+        Console.Clear();
+
+        Console.WriteLine(
+            "===== REAJUSTE DE PREÇOS ====="
+        );
+
+        if (produtos.Count == 0)
+        {
+            Console.WriteLine(
+                "Nenhum produto cadastrado."
+            );
+
+            Console.ReadKey();
+            return;
+        }
+
+        Console.Write("Nome do produto: ");
+
+        string nome =
+            Console.ReadLine();
+
+        Produto produtoEncontrado =
+            null;
+
+        foreach (Produto produto in produtos)
+        {
+            if (produto.Nome.Equals(
+                nome,
+                StringComparison.OrdinalIgnoreCase))
+            {
+                produtoEncontrado = produto;
+                break;
+            }
+        }
+
+        if (produtoEncontrado == null)
+        {
+            Console.WriteLine(
+                "\nProduto não encontrado."
+            );
+        }
+        else
+        {
+            Console.WriteLine();
+            Console.WriteLine(
+                "Preço atual: R$ " +
+                produtoEncontrado.Preco.ToString("F2")
+            );
+
+            Console.Write(
+                "Percentual de reajuste: "
+            );
+
+            double percentual;
+
+            double.TryParse(
+                Console.ReadLine(),
+                out percentual
+            );
+
+            if (percentual <= 0)
+            {
+                Console.WriteLine(
+                    "\nPercentual inválido."
+                );
+            }
+            else
+            {
+                double precoAntigo =
+                    produtoEncontrado.Preco;
+
+                // Cálculo do novo preço
+                double novoPreco =
+                    precoAntigo +
+                    (
+                        precoAntigo *
+                        percentual /
+                        100
+                    );
+
+                produtoEncontrado.Preco =
+                    novoPreco;
+
+                Console.WriteLine();
+
+                Console.WriteLine(
+                    "Reajuste realizado com sucesso!"
+                );
+
+                Console.WriteLine(
+                    "Preço anterior: R$ " +
+                    precoAntigo.ToString("F2")
+                );
+
+                Console.WriteLine(
+                    "Novo preço: R$ " +
+                    novoPreco.ToString("F2")
+                );
+            }
+        }
+
+        Console.ReadKey();
+    }
+}
+
