@@ -43,26 +43,7 @@ Estrutura prevista:
 - `codigos/UML/` — diagramas e materiais de modelagem do sistema.
 - `codigos/README.md` — orientações para executar e compreender os arquivos.
 
-## 5. Organização do repositório
-
-```text
-Projeto-de-Extensao-em-Desenvolvimento-de-Sistemas/
-├── README.md
-├── documento/
-│   └── README.md
-├── video/
-│   └── README.md
-└── codigos/
-    ├── README.md
-    ├── CSharp/
-    │   └── .gitkeep
-    ├── SQL/
-    │   └── .gitkeep
-    └── UML/
-        └── .gitkeep
-```
-
-## 6. Identificação acadêmica
+## 5. Identificação acadêmica
 
 **Instituição:** Universidade Nove de Julho (UNINOVE)  
 **Disciplina:** Projeto de Extensão em Desenvolvimento de Sistemas  
