@@ -8,8 +8,6 @@ O projeto propõe uma solução computacional para auxiliar na organização e n
 
 A aplicação busca centralizar informações sobre usuários, medicamentos, horários e registros de utilização, além de disponibilizar recursos de lembretes e acompanhamento. Seu objetivo é facilitar a organização da rotina e contribuir para a autonomia e a qualidade de vida dos usuários.
 
-**Importante:** o sistema tem caráter exclusivamente organizacional e informativo. Não realiza diagnósticos, prescrições ou alterações de tratamentos, nem substitui a orientação de profissionais de saúde.
-
 ### Objetivos
 
 - Desenvolver uma solução digital para apoiar a organização da rotina de medicamentos.
@@ -22,15 +20,11 @@ A aplicação busca centralizar informações sobre usuários, medicamentos, hor
 
 O documento acadêmico completo ficará disponível na pasta **[documento](./documento/)**.
 
-> **Adicionar aqui:** o arquivo PDF final do projeto (e, se necessário, a versão editável em DOCX).
-
 ## 3. Vídeo de apresentação — YouTube
 
 O vídeo de apresentação (pitch) será publicado no YouTube, com duração máxima de 10 minutos.
 
-**Link do vídeo:** [INSERIR LINK DO YOUTUBE AQUI]
-
-> Substitua o texto acima pelo endereço do vídeo quando ele estiver publicado.
+**Link do vídeo:** [https://www.youtube.com/watch?v=SOcn72WSZtE]
 
 ## 4. Códigos e implementação
 
@@ -41,7 +35,6 @@ Estrutura prevista:
 - `codigos/CSharp/` — código-fonte da aplicação em C#.
 - `codigos/SQL/` — scripts de criação das tabelas, inserção de dados e consultas.
 - `codigos/UML/` — diagramas e materiais de modelagem do sistema.
-- `codigos/README.md` — orientações para executar e compreender os arquivos.
 
 ## 5. Identificação acadêmica
 
